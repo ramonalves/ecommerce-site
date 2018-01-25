@@ -81,11 +81,9 @@ gulp.task('build-images', () => {
 			.pipe(livereload())
 })
 
-// gulp.task('build', ['serveprod', 'build-html', 'build-css', 'build-js', 'build-images'] , () => {
-// 	return initServer()
-// })
+gulp.task('heroku:production', ['serveprod', 'build-html', 'build-css', 'build-js', 'build-images'])
 
-gulp.task('default', ['serveprod']);
+// gulp.task('default', ['serveprod']);
 
 // gulp.task('watch', () => {
 // 	gulp.watch('src/views/**/*.ejs', ['build-html'])
