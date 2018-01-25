@@ -1,6 +1,6 @@
 const gulp = require('gulp')
 const gutil = require('gulp-util')
-const connect = require('gulp-connect')
+const nodemon = require('gulp-nodemon')
 const notify = require('gulp-notify')
 const livereload = require('gulp-livereload')
 const sass = require('gulp-sass')
@@ -20,27 +20,19 @@ let onError = (error) => {
 	gutil.log(gutil.colors.red(error))
 }
 
-// let initServer = () => {
-// 	livereload.listen()
+let initServer = () => {
+	livereload.listen()
 
-// 	nodemon({
-// 		script: 'app.js',
-// 		ext: 'js'
-// 	})
-// 	.on('restart', () => {
-// 		gulp.src('app.js')
-// 			.pipe(livereload())
-// 			.pipe(notify('Realoading...'))
-// 	})
-// }
-
-gulp.task('serveprod', function() {
-	connect.server({
-	  root: 'app',
-	  port: process.env.PORT || 5000, // localhost:5000
-	  livereload: false
-	});
-  });
+	nodemon({
+		script: 'app.js',
+		ext: 'js'
+	})
+	.on('restart', () => {
+		gulp.src('app.js')
+			.pipe(livereload())
+			.pipe(notify('Realoading...'))
+	})
+}
 
 gulp.task('build-html', () => {
 	return gulp
@@ -81,15 +73,15 @@ gulp.task('build-images', () => {
 			.pipe(livereload())
 })
 
-gulp.task('heroku:production', ['serveprod', 'build-html', 'build-css', 'build-js', 'build-images'])
+gulp.task('build', ['build-html', 'build-css', 'build-js', 'build-images'] , () => {
+	return initServer()
+})
 
-// gulp.task('default', ['serveprod']);
-
-// gulp.task('watch', () => {
-// 	gulp.watch('src/views/**/*.ejs', ['build-html'])
-// 	gulp.watch('public/scss/**', ['build-css'])
-// 	gulp.watch('public/js/**/*.js', ['js'])
-// })
+gulp.task('watch', () => {
+	gulp.watch('src/views/**/*.ejs', ['build-html'])
+	gulp.watch('public/scss/**', ['build-css'])
+	gulp.watch('public/js/**/*.js', ['js'])
+})
 
 const nodeEnv = process.env.NODE_ENV || 'development'
 
