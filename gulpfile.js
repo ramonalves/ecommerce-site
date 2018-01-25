@@ -1,6 +1,5 @@
 const gulp = require('gulp')
 const gutil = require('gulp-util')
-const nodemon = require('gulp-nodemon')
 const connect = require('gulp-connect')
 const notify = require('gulp-notify')
 const livereload = require('gulp-livereload')
