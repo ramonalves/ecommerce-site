@@ -1,0 +1,32 @@
+<%- contentFor('body') %>
+<section id="products">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-12 col-lg-12 list_pro">
+				<% if (data[0]) { %>
+					<h4 class="title upper bold">Produtos Rastreados em Outras Lojas</h4>
+					<hr/>
+					<div class="row">
+						<% for (var i = 0; i < data.length; i++) {%>
+							<div class="col-xs-12 col-md-4 product_item">
+								<div class="preview">
+									<img src="<%= data[i].image %>" class="img-responsive center-block"  alt="">
+								</div>
+								<div class="info">
+									<a href="<%= data[i].url %>" target="_blank"><%= data[i].name %></a>
+									<div class="price">
+										<strong>R$ <%= data[i].price %></strong>
+										<a href="/produtos-rastreados/<%= data[i]._id %>" class="btn btn-red-default">Detalhes</a><br><br>
+										<a class="text-success" href="/produtos-rastreados/<%= data[i]._id %>">Compre aqui por R$ <%= data[i].price - (parseInt((data[i].price * 10) / 100)) %></a>
+									</div>
+								</div>
+							</div>	
+						<% } %>													
+					</div>
+				<% } else{ %>  
+					<h4 class="title">Nenhum produto encontrado!</h4>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</section>

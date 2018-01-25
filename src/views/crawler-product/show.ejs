@@ -1,0 +1,35 @@
+<section id="data-details">
+	<div class="container">	
+		<div class="row">
+			<div class="col-xs-12 col-md-6 img-preview">
+				<img src="<%= data.image %>" alt="" class="img-responsive">
+			</div>
+			<div class="col-xs-12 col-md-6 data-info">
+				<h1 class="upper"><%= data.name %></h1>
+				<div class="pay-info">
+					<p>
+						Preço original <strong> R$ <%= data.price %></strong>
+					</p>
+					<p class="text-success">
+						Compre aqui por <strong> R$ <%= data.price - ((data.price * 10) / 100) %></strong>
+					</p>
+				</div>
+				<div class="pay-action">
+					<form action="/cart" method="POST">
+						<input type="hidden" name="data_id" value="<%= data._id %>" >
+						<button class="btn btn-block btn-red-default upper btn-add-cart">Incluir no Carrinho</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 description">
+				<h4 class="title upper">Detalhes do produto</h4>
+				<hr>
+				<p>
+					<%= data.description %>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,78 @@
+<div class="row">	
+	<div class="col-xs-12">
+		<h4>Geral</h4>
+		<hr>
+	</div>
+</div>
+<div class="form-group">
+	<label for="name">Nome</label>
+	<input type="text" name="name" class="form-control" placeholder="Digite seu Nome completo" value="<%= customer.name %>">
+</div>
+
+<input type="hidden" name="_id" value="<%= customer.id %>">
+
+<div class="form-group">
+	<label for="email">E-mail</label>
+	<input type="email" name="email" class="form-control" placeholder="Digite seu E-mail" value="<%= customer.email %>">
+</div>
+
+<div class="form-group">
+	<label for="password">Senha</label>
+	<input type="password" name="password" class="form-control" placeholder="Digite a Senha" value="<%= customer.password %>">
+</div>
+
+<div class="row">	
+	<div class="col-xs-12">
+		<h4>Dados Pessoais</h4>
+		<hr>
+	</div>
+</div>
+<div class="form-group">
+	<label for="name">CPF</label>
+	<input type="text" name="cpf" class="form-control" placeholder="000.000.000-00" value="<%= customer.cpf %>">
+</div>
+
+<div class="form-group">
+	<label for="name">Celular</label>
+	<input type="tel" name="celphone" class="form-control" placeholder="(99) 99999-9999" value="<%= customer.celphone %>">
+</div>
+
+<div class="row">	
+	<div class="col-xs-12">
+		<h4>Endereço de Entrega</h4>
+		<hr>
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="name">CEP</label>
+	<input type="text" name="cep" class="form-control" placeholder="Informe seu CEP" value="<%= customer.address.cep %>">
+</div>
+
+<div class="form-group">
+	<label for="name">Endereço</label>
+	<input type="text" name="street" class="form-control" placeholder="Informe seu endereço" value="<%= customer.address.street %>">
+</div>
+
+<div class="form-group">
+	<label for="name">Bairro</label>
+	<input type="text" name="neightborhood" class="form-control" placeholder="Informe seu bairro"  value="<%= customer.address.neightborhood %>">
+</div>
+
+<div class="form-group">
+	<label for="name">Número</label>
+	<input type="number" name="number_delivery" class="form-control" placeholder="Informe o número"  value="<%= customer.address.number %>">
+</div>
+
+<div class="form-group">
+	<label for="name">Cidade</label>
+	<input type="text" name="city" class="form-control" placeholder="Informe sua cidade"  value="<%= customer.address.city %>">
+</div>
+<div class="form-group">
+	<label for="name">UF</label>
+	<input type="text" name="uf" class="form-control" placeholder="Informe sua UF"  value="<%= customer.address.uf %>">
+</div>
+
+<div class="form-group">
+	<button type="submit" class="btn btn-red-dark-default">Enviar</button>
+</div>

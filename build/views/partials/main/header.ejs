@@ -1,0 +1,86 @@
+<header id="header" class="no-height">
+	<div class="container">
+        <div class="row">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only">Toggle</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+					</button>
+					<div class="logo">
+						<a href="/">
+							<img src="/images/l_logo2.png" alt="" class="img-responsive">
+						</a>
+					</div>
+				</div>
+                <div class="navbar-collapse collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+							<a href="/produtos">Produtos</a>
+						</li>
+						<li>
+							<a href="/produtos-rastreados">Rastrear Produtos</a>
+						</li>
+						<li class="dropdown">
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-red-default upper dropdown-toggle" data-toggle="dropdown">
+									<a href="#"> Categorias </a>
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<% for (var i = 0; i < categories_menu.length; i++) {%>
+										<li>
+											<a href="/produtos/categoria/<%= categories_menu[i].slug %>"><%= categories_menu[i].name %></a>
+										</li>
+									<% } %>
+								</ul>
+							</div>
+						</li>
+						<li class="dropdown">
+							<% if (user) { %>
+								<div class="btn-group" role="group">
+									<button type="button" class="btn btn-red-default upper dropdown-toggle" data-toggle="dropdown">
+										<i class="fa fa-user"></i>
+										<%= user.name.split(' ').slice(0, 1).join(' ') %>
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="/account/<%= user.slug %>">Perfil</a>
+										</li>
+										<li>
+											<a href="/account/logout">Sair</a>
+										</li>
+									</ul>
+								</div>
+							<% } else { %>
+								<li>
+									<a href="/account" class="btn btn-red-default upper">
+										Entrar / Registrar
+									</a>
+								</li>
+							<% } %>
+							<% if (cart_g._id) { %>
+								<li>
+									<a href="/cart/<%= cart_g._id %>" class="btn btn-red-default shopping upper">
+										<i class="fa fa-shopping-cart"></i>
+										<span class="badge"><%= cart_g.count %></span>
+									</a>
+								</li>
+							<% } else { %>
+								<li>
+									<a href="" class="btn btn-red-default shopping upper">
+										<i class="fa fa-shopping-cart"></i>
+										<span class="badge"><%= cart_g.count %></span>
+									</a>
+								</li>
+							<% } %>
+						</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+	</div>
+</header>

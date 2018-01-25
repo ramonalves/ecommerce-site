@@ -1,0 +1,28 @@
+{
+  "name": "client",
+  "description": "Front para ecommerce",
+  "main": "app.js",
+  "authors": [
+    "Ramon Alves <ramon_agn@outlook.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ecommerce",
+    "api",
+    "node",
+    "rest",
+    "gulp"
+  ],
+  "homepage": "https://github.com/ramonalves/light-lawliet",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}
