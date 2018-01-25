@@ -4,8 +4,7 @@
   "description": "Front para ecommerce",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
-    "postinstall": "gulp default",
+    "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
