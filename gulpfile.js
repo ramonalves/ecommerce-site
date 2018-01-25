@@ -81,15 +81,17 @@ gulp.task('build-images', () => {
 			.pipe(livereload())
 })
 
-gulp.task('build', ['serveprod', 'build-html', 'build-css', 'build-js', 'build-images'] , () => {
-	return initServer()
-})
+// gulp.task('build', ['serveprod', 'build-html', 'build-css', 'build-js', 'build-images'] , () => {
+// 	return initServer()
+// })
 
-gulp.task('watch', () => {
-	gulp.watch('src/views/**/*.ejs', ['build-html'])
-	gulp.watch('public/scss/**', ['build-css'])
-	gulp.watch('public/js/**/*.js', ['js'])
-})
+gulp.task('default', ['serveprod']);
+
+// gulp.task('watch', () => {
+// 	gulp.watch('src/views/**/*.ejs', ['build-html'])
+// 	gulp.watch('public/scss/**', ['build-css'])
+// 	gulp.watch('public/js/**/*.js', ['js'])
+// })
 
 const nodeEnv = process.env.NODE_ENV || 'development'
 
